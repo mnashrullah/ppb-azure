@@ -7,10 +7,11 @@
     );
     //Establishes the connection
     $conn = sqlsrv_connect($serverName, $connectionOptions);
-    $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-         FROM [SalesLT].[ProductCategory] pc
-         JOIN [SalesLT].[Product] p
-         ON pc.productcategoryid = p.productcategoryid";
+    $tsql= "SELECT * from mhs";
+    // $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+    //      FROM [SalesLT].[ProductCategory] pc
+    //      JOIN [SalesLT].[Product] p
+    //      ON pc.productcategoryid = p.productcategoryid";
     $getResults= sqlsrv_query($conn, $tsql);
     echo ("Reading data from table" . PHP_EOL);
     if ($getResults == FALSE)
