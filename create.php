@@ -24,20 +24,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $description = $input_description;
     }
-    
-    echo 'name: ' + $name, $description;
     // Check input errors before inserting in database
     if(empty($name_err) && empty($description_err)){
         $tsql= "INSERT INTO portfolio (name, description) VALUES ('$name','$description')";
         
-        echo 'sql: ' + $tsql;
         $getResults= sqlsrv_query($conn, $tsql);
-        if ($getResults == FALSE)
-            echo (sqlsrv_errors());
-        else{
-            header("location: index.php");
+        header("location: index.php");
             exit();
-        }
     }
     
     // Close connection
