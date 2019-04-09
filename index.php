@@ -43,7 +43,11 @@
                     // Include config file
                     require_once "dbconfig.php";
                     
-                    $sql= "select * from portfolio";
+                    $tsql= "SELECT * from portfolio";
+                    // $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+                    //      FROM [SalesLT].[ProductCategory] pc
+                    //      JOIN [SalesLT].[Product] p
+                    //      ON pc.productcategoryid = p.productcategoryid";
                     $getResults= sqlsrv_query($conn, $tsql);
                     echo ("Data" . PHP_EOL);
                     if ($getResults == FALSE)
@@ -52,6 +56,16 @@
                      echo ($row['id'] . " " . $row['name'] . PHP_EOL);
                     }
                     sqlsrv_free_stmt($getResults);
+                    
+                    // $sql= "select * from portfolio";
+                    // $getResults= sqlsrv_query($conn, $tsql);
+                    // echo ("Data" . PHP_EOL);
+                    // if ($getResults == FALSE)
+                    //     echo (sqlsrv_errors());
+                    // while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+                    //  echo ($row['id'] . " " . $row['name'] . PHP_EOL);
+                    // }
+                    // sqlsrv_free_stmt($getResults);
 
 
 
