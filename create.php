@@ -26,7 +26,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     // Check input errors before inserting in database
     if(empty($name_err) && empty($description_err)){
-        $tsql= "INSERT INTO portfolio (name, description) VALUES ('$name','$description')";
+        $date = date("Y-m-d");
+        $tsql= "INSERT INTO portfolio (name, description, dateCreated) VALUES ('$name','$description','$date')";
         
         $getResults= sqlsrv_query($conn, $tsql);
         header("location: index.php");
