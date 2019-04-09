@@ -45,7 +45,7 @@
 
                     if ($stmt) {
                     $rows = sqlsrv_has_rows( $stmt );
-                    if ($rows === true)
+                    if ($rows === true){
                     echo "<table class='table table-bordered table-striped'>";
                     echo "<thead>";
                         echo "<tr>";
@@ -68,9 +68,10 @@
                         echo "</tr>";
                     }
                     echo "</tbody>";                            
-                echo "</table>"; 
-                    else 
-                        echo "There are no rows. <br />";
+                echo "</table>"; }
+                    else {
+                            echo "There are no rows. <br />";
+                        }
                     }
 
                     ?>
