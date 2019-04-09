@@ -37,7 +37,8 @@
                         <h2 class="pull-left">Portoflio</h2>
                         <a href="create.php" class="btn btn-success pull-right">Add new portoflio</a>
                     </div>
-                    Hello, today is <?php echo date('l, F jS, Y'); ?>.
+
+                    
                     <?php
                     // Include config file
                     require_once "dbconfig.php";
