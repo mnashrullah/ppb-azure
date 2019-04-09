@@ -37,36 +37,9 @@
                         <h2 class="pull-left">Portoflio</h2>
                         <a href="create.php" class="btn btn-success pull-right">Add new portoflio</a>
                     </div>
-
-
                     <?php
-                    // Include config file
                     require_once "dbconfig.php";
-                    
                     $tsql= "SELECT * from portfolio";
-                    // $getResults= sqlsrv_query($conn, $tsql);
-                    // echo ("Data" . PHP_EOL);
-                    // if ($getResults == FALSE)
-                    //     echo (sqlsrv_errors());
-                    // while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-                    //  echo ($row['id'] . " " . $row['name'] . PHP_EOL);
-                    // }
-                    // sqlsrv_free_stmt($getResults);
-                    
-                    // $sql= "select * from portfolio";
-                    // $getResults= sqlsrv_query($conn, $tsql);
-                    // echo ("Data" . PHP_EOL);
-                    // if ($getResults == FALSE)
-                    //     echo (sqlsrv_errors());
-                    // while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-                    //  echo ($row['id'] . " " . $row['name'] . PHP_EOL);
-                    // }
-                    // sqlsrv_free_stmt($getResults);
-
-
-
-                    // Attempt select query execution
-                    // $sql= "select * from portfolio";
                     if($results= sqlsrv_query($conn, $tsql)){
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
@@ -74,6 +47,7 @@
                                         echo "<th>#</th>";
                                         echo "<th>Name</th>";
                                         echo "<th>Description</th>";
+                                        echo "<th>Action</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -89,9 +63,7 @@
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            
-                            echo "</table>";
-                            // Free result set
-                            mysqli_free_result($result);                        
+                            echo "</table>";                     
                     } else{
                         // echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
                     } 
