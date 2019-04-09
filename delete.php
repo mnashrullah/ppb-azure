@@ -1,6 +1,6 @@
 <?php
 // Process delete operation after confirmation
-if(isset($_POST["id"]) && !empty($_POST["id"])){
+if(isset($_GET["id"])){
     // Include config file
     require_once "dbconfig.php";
     
@@ -8,19 +8,16 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Prepare a delete statement
     $sql = "DELETE FROM portfolio WHERE id = '$id'";
     $getResults= sqlsrv_query($conn, $sql);
-    // header("location: index.php");
-    // exit();
+    header("location: index.php");
+    exit();
 
 } else{
-    // Check existence of id parameter
-    if(empty(trim($_GET["id"]))){
-        // URL doesn't contain id parameter. Redirect to error page
-        header("location: error.php");
-        exit();
+    header("location: error.php");
+    exit();
     }
 }
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,4 +53,4 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         </div>
     </div>
 </body>
-</html>
+</html> -->
