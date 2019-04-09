@@ -8,9 +8,11 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Prepare a delete statement
     $sql = "DELETE FROM portfolio WHERE id = '$id'";
     $getResults= sqlsrv_query($conn, $tsql);
-    header("location: index.php");
-    exit();
-    
+    echo $getResults;
+    echo $sql;
+    // header("location: index.php");
+    // exit();
+
 } else{
     // Check existence of id parameter
     if(empty(trim($_GET["id"]))){
