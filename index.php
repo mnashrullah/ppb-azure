@@ -41,6 +41,12 @@
                     require_once "dbconfig.php";
                     $tsql= "SELECT * from portfolio";
                     if($results= sqlsrv_query($conn, $tsql)){
+                            $row_count = sqlsrv_num_rows( $results );
+                            if ($row_count === false)
+                            echo "Error in retrieveing row count.";
+                            else
+                            echo $row_count;
+                            
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
