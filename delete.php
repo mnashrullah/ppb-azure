@@ -1,6 +1,6 @@
 <?php
 // Process delete operation after confirmation
-if(isset($_GET["id"])){
+if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Include config file
     require_once "dbconfig.php";
     
@@ -12,12 +12,15 @@ if(isset($_GET["id"])){
     exit();
 
 } else{
-    header("location: error.php");
-    exit();
+    // Check existence of id parameter
+    if(empty(trim($_GET["id"]))){
+        // URL doesn't contain id parameter. Redirect to error page
+        header("location: error.php");
+        exit();
     }
 }
 ?>
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -53,4 +56,4 @@ if(isset($_GET["id"])){
         </div>
     </div>
 </body>
-</html> -->
+</html>
