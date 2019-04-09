@@ -5,7 +5,6 @@ require_once "dbconfig.php";
 // Define variables and initialize with empty values
 $name = $description = "";
 $name_err = $description_err  = "";
-echo 'name: ' + $name, $description;
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate name
@@ -26,6 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $description = $input_description;
     }
     
+    echo 'name: ' + $name, $description;
     // Check input errors before inserting in database
     if(empty($name_err) && empty($description_err)){
         $tsql= "INSERT INTO portfolio (name, description) VALUES ('$name','$description')";
