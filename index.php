@@ -38,7 +38,7 @@
                         <a href="create.php" class="btn btn-success pull-right">Add new portoflio</a>
                     </div>
 
-                    
+
                     <?php
                     // Include config file
                     require_once "dbconfig.php";
@@ -56,7 +56,7 @@
 
 
                     // Attempt select query execution
-                    $sql= "SELECT * from portfolio";
+                    $sql= "select * from portfolio";
                     if($results= sqlsrv_query($conn, $tsql)){
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
