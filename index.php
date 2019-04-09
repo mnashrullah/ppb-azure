@@ -40,13 +40,18 @@
                     <?php
                     require_once "dbconfig.php";
                     $tsql= "SELECT * from portfolio";
-                    if($results= sqlsrv_query($conn, $tsql)){
-                        $rows = sqlsrv_has_rows( $results );
-                        if ($rows === true)
-                           echo "There are rows. <br />";
-                        else 
-                           echo "There are no rows. <br />";
 
+                    $stmt = sqlsrv_query( $conn, $tsql);
+
+                    if ($stmt) {
+                    $rows = sqlsrv_has_rows( $stmt );
+                    if ($rows === true)
+                        echo "There are rows. <br />";
+                    else 
+                        echo "There are no rows. <br />";
+                    }
+                    if($results= sqlsrv_query($conn, $tsql)){
+                        
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
