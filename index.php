@@ -43,15 +43,15 @@
                     // Include config file
                     require_once "dbconfig.php";
                     
-
-                    // $getResults= sqlsrv_query($conn, $tsql);
-                    // echo ("Data mahasiswa" . PHP_EOL);
-                    // if ($getResults == FALSE)
-                    //     echo (sqlsrv_errors());
-                    // while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-                    //  echo ($row['nim'] . " " . $row['nama'] . PHP_EOL);
-                    // }
-                    // sqlsrv_free_stmt($getResults);
+                    $sql= "select * from portfolio";
+                    $getResults= sqlsrv_query($conn, $tsql);
+                    echo ("Data" . PHP_EOL);
+                    if ($getResults == FALSE)
+                        echo (sqlsrv_errors());
+                    while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+                     echo ($row['id'] . " " . $row['name'] . PHP_EOL);
+                    }
+                    sqlsrv_free_stmt($getResults);
 
 
 
