@@ -52,7 +52,6 @@
                             echo "<th>#</th>";
                             echo "<th>Name</th>";
                             echo "<th>Description</th>";
-                            echo "<th>Date Created</th>";
                             echo "<th>Action</th>";
                         echo "</tr>";
                     echo "</thead>";
@@ -62,7 +61,6 @@
                             echo "<td>" . $row['id'] . "</td>";
                             echo "<td>" . $row['name'] . "</td>";
                             echo "<td>" . $row['description'] . "</td>";
-                            echo "<td>" . date_format($row['date'],"Y/m/d"); . "</td>";
                             echo "<td>";
                                 // echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
                                 echo "<a href='delete.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
