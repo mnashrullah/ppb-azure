@@ -5,7 +5,7 @@ require_once "dbconfig.php";
 // Define variables and initialize with empty values
 $name = $description = "";
 $name_err = $description_err  = "";
- 
+echo $name, $description;
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate name
