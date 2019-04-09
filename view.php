@@ -34,8 +34,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <h2 class="pull-left">Employees Details</h2>
-                        <a href="create.php" class="btn btn-success pull-right">Add New Employee</a>
+                        <h2 class="pull-left">Portoflio</h2>
+                        <a href="create.php" class="btn btn-success pull-right">Add new portoflio</a>
                     </div>
                     <?php
                     // Include config file
