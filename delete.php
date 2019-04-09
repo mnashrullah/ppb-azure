@@ -11,9 +11,9 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     echo '<br>' $getResults;    
     echo '<br>' $sql;
 
-    if ($getResults == FALSE)
-        echo (sqlsrv_errors());
-    sqlsrv_free_stmt($getResults);
+    // if ($getResults == FALSE)
+    //     echo (sqlsrv_errors());
+
 
 
     // header("location: index.php");
