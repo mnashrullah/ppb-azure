@@ -56,7 +56,7 @@
 
                     // Attempt select query execution
                     $sql= "SELECT * from portfolio";
-                    if($results= sqlsrv_query($conn, $tsql);){
+                    if($results= sqlsrv_query($conn, $tsql)){
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
