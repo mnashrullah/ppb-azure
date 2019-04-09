@@ -43,14 +43,14 @@
                     require_once "dbconfig.php";
                     
 
-                    $getResults= sqlsrv_query($conn, $tsql);
-                    echo ("Data mahasiswa" . PHP_EOL);
-                    if ($getResults == FALSE)
-                        echo (sqlsrv_errors());
-                    while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-                     echo ($row['nim'] . " " . $row['nama'] . PHP_EOL);
-                    }
-                    sqlsrv_free_stmt($getResults);
+                    // $getResults= sqlsrv_query($conn, $tsql);
+                    // echo ("Data mahasiswa" . PHP_EOL);
+                    // if ($getResults == FALSE)
+                    //     echo (sqlsrv_errors());
+                    // while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+                    //  echo ($row['nim'] . " " . $row['nama'] . PHP_EOL);
+                    // }
+                    // sqlsrv_free_stmt($getResults);
 
 
 
@@ -66,7 +66,7 @@
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
-                                while($row = mysqli_fetch_array($result)){
+                                while ($row = sqlsrv_fetch_array($results, SQLSRV_FETCH_ASSOC)){
                                     echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['name'] . "</td>";
