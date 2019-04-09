@@ -6,12 +6,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     
     $id = $_POST["id"];
     // Prepare a delete statement
-    $sql = "DELETE FROM portfolio WHERE id = $id";
-    $getResults= sqlsrv_query($conn, $tsql);
-    echo '<br>' $getResults;
-    echo '<br>' $sql;
-
-    
+    $sql = "DELETE FROM portfolio WHERE id = '$id'";
+    $getResults= sqlsrv_query($conn, $sql);
     // header("location: index.php");
     // exit();
 
