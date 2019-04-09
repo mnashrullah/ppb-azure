@@ -41,10 +41,10 @@
                     require_once "dbconfig.php";
                     $tsql= "SELECT * from portfolio";
 
-                    $stmt = sqlsrv_query( $conn, $tsql);
+                    $results = sqlsrv_query( $conn, $tsql);
 
-                    if ($stmt) {
-                    $rows = sqlsrv_has_rows( $stmt );
+                    if ($results) {
+                    $rows = sqlsrv_has_rows( $results );
                     if ($rows === true){
                     echo "<table class='table table-bordered table-striped'>";
                     echo "<thead>";
