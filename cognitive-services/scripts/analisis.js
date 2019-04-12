@@ -1,4 +1,11 @@
 window.onload = function () {
+    var foo = 'Peter';
+    (function ( bar ) {
+
+        bar // evaluates to 'Peter'
+    
+    }( console.log(foo) ));
+    
     processImage();
     function processImage() {
         // **********************************************
