@@ -54,7 +54,7 @@ window.onload = function () {
         .done(function(data) {
             // Show formatted JSON on webpage.
             // $("#responseTextArea").val(JSON.stringify(data, null, 2));
-            var captions = data;
+            var captions = data.description.captions[0].text;
             $("#responseTextArea").val(JSON.stringify(captions));
         })
  
