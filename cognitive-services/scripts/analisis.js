@@ -1,4 +1,4 @@
-window.onload = function () {
+onload = function () {
     processImage();
     function processImage() {
         // **********************************************
