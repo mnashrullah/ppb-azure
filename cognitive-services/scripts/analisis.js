@@ -1,5 +1,5 @@
-alert('try it');
-processImage();
+window.onload = function () {
+    processImage();
     function processImage() {
         // **********************************************
         // *** Update or verify the following values. ***
@@ -67,3 +67,4 @@ processImage();
             alert(errorString);
         });
     };
+}
