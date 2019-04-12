@@ -42,6 +42,8 @@ window.onload = function () {
         // expandImg.src = sourceImageUrl.src;
  
         // Make the REST API call.
+
+       
         $.ajax({
             url: uriBase + "?" + $.param(params),
  
