@@ -27,7 +27,7 @@ window.onload = function () {
         };
  
         // Display the image.
-        var sourceImageUrl = "https://ppbazurestorage.blob.core.windows.net/ppbcontainer/20190226093342158d4d6cc4b769f5ead74da9f75a6e1a.png";
+        var sourceImageUrl = "https://ppbazurestorage.blob.core.windows.net/ppbcontainer/pexels-photo-1404819.png";
         var divImage = document.getElementById("inputImage");
         document.querySelector("#sourceImage").src = sourceImageUrl;
 
