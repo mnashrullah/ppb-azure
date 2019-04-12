@@ -42,38 +42,76 @@ window.onload = function () {
         // expandImg.src = sourceImageUrl.src;
  
         // Make the REST API call.
+        (function ( $ ) { 
 
+            // put all that "wl_alert" code here 
+            console.log('aasdf');          
+            console.log('aasdfasdf');  
+            $.ajax({
+                url: uriBase + "?" + $.param(params),
+     
+                // Request headers.
+                beforeSend: function(xhrObj){
+                    xhrObj.setRequestHeader("Content-Type","application/json");
+                    xhrObj.setRequestHeader(
+                        "Ocp-Apim-Subscription-Key", subscriptionKey);
+                },
+     
+                type: "POST",
+     
+                // Request body.
+                data: '{"url": ' + '"' + sourceImageUrl + '"}',
+            })
+     
+            .done(function(data) {
+                // Show formatted JSON on webpage.
+                // $("#responseTextArea").val(JSON.stringify(data, null, 2));
+                var captions = data.description.captions[0].text;
+                $("#responseTextArea").val(JSON.stringify(captions));
+            })
+     
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                // Display error message.
+                var errorString = (errorThrown === "") ? "Error. " :
+                    errorThrown + " (" + jqXHR.status + "): ";
+                errorString += (jqXHR.responseText === "") ? "" :
+                    jQuery.parseJSON(jqXHR.responseText).message;
+                alert(errorString);
+            });
+        }( jQuery ));
+        
+    
        
-        $.ajax({
-            url: uriBase + "?" + $.param(params),
+        // $.ajax({
+        //     url: uriBase + "?" + $.param(params),
  
-            // Request headers.
-            beforeSend: function(xhrObj){
-                xhrObj.setRequestHeader("Content-Type","application/json");
-                xhrObj.setRequestHeader(
-                    "Ocp-Apim-Subscription-Key", subscriptionKey);
-            },
+        //     // Request headers.
+        //     beforeSend: function(xhrObj){
+        //         xhrObj.setRequestHeader("Content-Type","application/json");
+        //         xhrObj.setRequestHeader(
+        //             "Ocp-Apim-Subscription-Key", subscriptionKey);
+        //     },
  
-            type: "POST",
+        //     type: "POST",
  
-            // Request body.
-            data: '{"url": ' + '"' + sourceImageUrl + '"}',
-        })
+        //     // Request body.
+        //     data: '{"url": ' + '"' + sourceImageUrl + '"}',
+        // })
  
-        .done(function(data) {
-            // Show formatted JSON on webpage.
-            // $("#responseTextArea").val(JSON.stringify(data, null, 2));
-            var captions = data.description.captions[0].text;
-            $("#responseTextArea").val(JSON.stringify(captions));
-        })
+        // .done(function(data) {
+        //     // Show formatted JSON on webpage.
+        //     // $("#responseTextArea").val(JSON.stringify(data, null, 2));
+        //     var captions = data.description.captions[0].text;
+        //     $("#responseTextArea").val(JSON.stringify(captions));
+        // })
  
-        .fail(function(jqXHR, textStatus, errorThrown) {
-            // Display error message.
-            var errorString = (errorThrown === "") ? "Error. " :
-                errorThrown + " (" + jqXHR.status + "): ";
-            errorString += (jqXHR.responseText === "") ? "" :
-                jQuery.parseJSON(jqXHR.responseText).message;
-            alert(errorString);
-        });
+        // .fail(function(jqXHR, textStatus, errorThrown) {
+        //     // Display error message.
+        //     var errorString = (errorThrown === "") ? "Error. " :
+        //         errorThrown + " (" + jqXHR.status + "): ";
+        //     errorString += (jqXHR.responseText === "") ? "" :
+        //         jQuery.parseJSON(jqXHR.responseText).message;
+        //     alert(errorString);
+        // });
     };
 }
